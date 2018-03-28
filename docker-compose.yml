@@ -1,0 +1,20 @@
+version: '2.3'
+services:
+  worker:
+    build:
+      context: ./
+    image: protosschris/worker-demo
+    environment:
+      - QUEUE_DRIVER=redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - APP_ENV=prod
+      - APP_DEBUG=false
+    network_mode: bridge
+    links:
+      - redis
+  redis:
+    image: redis:2.8
+    network_mode: bridge
+    ports:
+      - 6379:6379
