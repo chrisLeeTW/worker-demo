@@ -16,5 +16,3 @@ services:
   redis:
     image: redis:2.8
     network_mode: bridge
-    ports:
-      - 6379:6379

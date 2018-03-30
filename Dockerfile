@@ -27,3 +27,5 @@ WORKDIR /code
 
 ENTRYPOINT []
 CMD ["php", "/code/artisan", "queue:work", "--daemon", "--queue=redis", "redis"]
+
+RUN ln -s /proc/self/fd/1 /code/storage/logs/laravel.log
